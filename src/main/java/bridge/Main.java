@@ -5,23 +5,21 @@ public class Main {
         System.out.println("=== Testando Sistema de Streaming (Bridge Pattern) ===\n");
 
         IPlataforma web = new PlataformaWeb();
-        IPlataforma mobile = new PlataformaMobile();
+        IPlataforma mob = new PlataformaMobile();
 
-        System.out.println("--- Cenário 1: Plano Gratuito na Web ---");
-        Plano plano1 = new PlanoGratuito(web);
-        System.out.println(plano1.assistir("O Poderoso Chefão"));
-        System.out.println(plano1.baixar());
-        System.out.println();
+        System.out.println("--- Teste 1 ---");
+        Plano p1 = new PlanoGratuito(web);
+        System.out.println(p1.assistir("O Poderoso Chefão"));
+        System.out.println(p1.baixar());
 
-        System.out.println("--- Cenário 2: Plano Premium no Mobile ---");
-        Plano plano2 = new PlanoPremium(mobile);
-        System.out.println(plano2.assistir("Interstellar"));
-        System.out.println(plano2.baixar());
-        System.out.println();
+        System.out.println("\n--- Teste 2 ---");
+        Plano p2 = new PlanoPremium(mob);
+        System.out.println(p2.assistir("Interstellar"));
+        System.out.println(p2.baixar());
 
-        System.out.println("--- Cenário 3: Trocando de Plataforma (Premium na Web) ---");
-        plano2.setPlataforma(web);
-        System.out.println(plano2.assistir("Interstellar"));
-        System.out.println(plano2.baixar());
+        System.out.println("\n--- Teste 3 ---");
+        p2.setPlataforma(web);
+        System.out.println(p2.assistir("Interstellar"));
+        System.out.println(p2.baixar());
     }
 }
